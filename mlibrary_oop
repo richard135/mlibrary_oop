@@ -1,0 +1,36 @@
+function Library (name, creator) {
+  this.name = name;
+  this.creator = creator;
+  this.playlist = [];
+}
+let musiclibrary = new Library("Gym", "Richard")
+let mylibrary = new Library("Coding", "Richie")
+
+
+console.log(musiclibrary.name)
+console.log(musiclibrary.creator)
+console.log(mylibrary.name)
+console.log(mylibrary.creator)
+
+function Playlist (name){
+  this.name = name;
+  this.name = tracks;
+  let addPlayList = new Library
+}
+
+function Track (title, rating, length){
+
+}
+
+
+function overallRating (){
+  //Calculate the rating by averaging the rating of its tracks
+}
+
+function totalDuration(){
+  //Sum duration of all the tracks
+}
+
+//Use new to instantiate these functions to create
+//instances of one library and then add new tracks
+//and playlists to the library
