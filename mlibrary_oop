@@ -2,35 +2,55 @@ function Library (name, creator) {
   this.name = name;
   this.creator = creator;
   this.playlist = [];
+
 }
-let musiclibrary = new Library("Gym", "Richard")
-let mylibrary = new Library("Coding", "Richie")
-
-
-console.log(musiclibrary.name)
-console.log(musiclibrary.creator)
-console.log(mylibrary.name)
-console.log(mylibrary.creator)
 
 function Playlist (name){
   this.name = name;
-  this.name = tracks;
-  let addPlayList = new Library
+  this.tracks = [];
 }
 
-function Track (title, rating, length){
+function Track(title, rating, length) {
+  this.title = title;
+  this.length = length;
+  this.rating = rating;
+}
 
+Playlist.prototype.overallRating = function() {
+  let avgRating = 0;
+  let i = 0 ;
+  this.tracks.forEach(function(a) {
+    i++;
+    avgRating+= a.rating
+  })
+  avgRating = avgRating/i
+  return avgRating
 }
 
 
-function overallRating (){
-  //Calculate the rating by averaging the rating of its tracks
+Playlist.prototype.overallDuration = function() {
+  let sumLength = 0;
+  let i = 0 ;
+  this.tracks.forEach(function(a) {
+    i++;
+    sumLength+= a.length
+  })
+  return sumLength
 }
 
-function totalDuration(){
-  //Sum duration of all the tracks
-}
 
-//Use new to instantiate these functions to create
-//instances of one library and then add new tracks
-//and playlists to the library
+let mytrack = new Track("Halo", 5, 180);
+let mytrack1 = new Track("Silence", 10, 180);
+let musiclibrary = new Library("Gym", "Richard");
+let myplaylist = new Playlist("Gym");
+
+
+myplaylist.tracks.push(mytrack, mytrack1)
+musiclibrary.playlist.push(myplaylist)
+
+
+console.log("Library: " + musiclibrary.name + " Creator: "+ musiclibrary.creator);
+console.log("Playlist: " + myplaylist.name);
+console.log("Track: ", myplaylist.tracks);
+console.log("Overall Rating",myplaylist.overallRating())
+console.log("Average Length",myplaylist.overallDuration())
